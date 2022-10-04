@@ -2,7 +2,7 @@ body {
     width: 1350px;
     margin: auto;
     background-image: url("paper.gif");
-    background-color: #3366CC	;
+    background-color: #FFFAF0	;
 }
 
 .imgbar {
@@ -11,11 +11,14 @@ body {
 
 }
 
+
 .imgbar img {
     width: 100%;
     height: 100%;
 }
-
+/* .imgbar img:hover {
+    transform: scale(1.5);
+} */
 div {
     display: flex;
     justify-content: space-between;
@@ -25,6 +28,8 @@ div {
     position: relative;
     width: 800px;
     height: 5px;
+    border: 2px solid black;
+    border-collapse: collapse ;
 }
 
 .tbcase>tbody>tr:hover {
@@ -33,11 +38,17 @@ div {
 
 .tbcase>tbody>tr {
     text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse ;
+}
+.tbcase>thead>tr>th {
+    border: 2px solid black;
+    border-collapse: collapse ;
 }
 
 .inputtype {
     flex: 4;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     width: 100px;
     flex-grow: 1;
 }
@@ -50,16 +61,22 @@ div {
     position: relative;
     width: 500px;
     height: 230px;
+    border: 2px solid black;
+    border-collapse: collapse ;
 }
 
 .board1>thead {
     background-color: #808080;
 
 }
+.board1>thead>tr>td {
+    border: 2px solid black;
+    border-collapse: collapse ;
+}
 
 .tbcase>thead {
     background-color: #808080;
-    color: yellow;
+    color: white;
 }
 
 ul {
@@ -70,7 +87,7 @@ ul {
     overflow: hidden;
     background-color: #808080;
     color: black;
-    border: #66CDAA 3px solid;
+    border: black 3px solid;
 }
 
 li {
@@ -106,8 +123,8 @@ li a:hover {
 }
 
 #inputName,
-#inputBirthday,
-#inputNation,
+#inputNumber,
+#inputStatus,
 #inputPhoto {
     width: 98%;
     border-radius: 5px;
@@ -122,6 +139,7 @@ li a:hover {
     color: aliceblue;
     border-radius: 5px;
     font-size: 15px;
+    
 }
 
 #buttoncancel {
@@ -147,7 +165,7 @@ li a:hover {
     height: 40%; */
     padding: 5px;
     border-radius: 5px;
-    background-color: #160b0bd3;
+    background-color: #FF0000;
     color: aliceblue;
     font-size: 15px;
 }
@@ -189,4 +207,7 @@ li a:hover {
 h2 {
     text-align: center;
     color: #050505a8;
+}
+.zoom:hover {
+    transform: scale(2.5);
 }

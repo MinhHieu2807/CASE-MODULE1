@@ -17,8 +17,8 @@ function renderlistplayer() {
         <tr>
         <td>${player.id}</td>
         <td>${player.name}</td>
-        <td>
-        <img style="width:100px; height:100px; border-radius: 50px;" src="${player.photo}" alt="">
+        <td class="zoom">
+        <img style="width:100px; height:100px; " src="${player.photo}" alt="">
         </td>
         <td>${player.number}</td>
         <td>${player.status}</td>
@@ -33,7 +33,7 @@ function renderlistplayer() {
 
 }
 function getMaxId(){
-    maxId = players[0].value;
+    maxId = players[0].id;
     for (let i =1; i<players.length; i++){
         if (players[i].id > maxId){
             maxId = players[i].id;
@@ -46,29 +46,29 @@ function add() {
     let index = Number(getMaxId());
     let name = document.querySelector(".name").value;
     if (name.trim() == "" || name == null) {
-        alert("Please re-enter your name");
+        alert("VUI LÒNG NHẬP TÊN VÀO !");
         return;
     }
     let photo = document.querySelector(".photo").value;
     if (photo.trim() == "" || photo == null) {
-        alert("Please re-enter your name");
+        alert("VUI LÒNG THÊM ẢNH VÀO !");
         return;
     }
     if (!isURL(photo)) {
         alert('Photo must url');
         return;
     }
-    let number = document.querySelector(".birthday").value;
+    let number = document.querySelector(".number").value;
     if (number.trim() == "" || number == null) {
-        alert("Please re-enter your Photo");
+        alert("VUI LÒNG NHẬP GIÁ MUỐN BÁN !");
         return;
     }
     let status = document.querySelector(".status").value;
     if (status.trim() == "" || status == null) {
-        alert("Please re-enter your Nation");
+        alert("VUI LÒNG NHẬP TÌNH TRẠNG BÁN !");
         return;
     }
-    players.push(new Player(index+1, name, photo, birthday, status));
+    players.push(new Player(index+1, name, photo, number, status));
     setdata(keydata, players);
     renderlistplayer();
     cancel();
@@ -98,14 +98,14 @@ function edit(id) {
     document.getElementById('inputId').value = part.id;
     document.getElementById('inputName').value = part.name;
     document.getElementById('inputPhoto').value = part.photo;
-    document.getElementById('inputBirthday').value = part.birthday;
-    document.getElementById('inputNation').value = part.nation;
+    document.getElementById('inputNumber').value = part.number;
+    document.getElementById('inputStatus').value = part.status;
 }
 function cancel() {
     document.querySelector("#inputId").value = "";
     document.querySelector(".name").value = "";
     document.querySelector(".photo").value = "";
-    document.querySelector(".birthday").value = "";
+    document.querySelector(".number").value = "";
     document.querySelector(".status").value = "";
 }
 function save(){
@@ -113,25 +113,25 @@ function save(){
     let position = getPosition(id);
     let name = document.getElementById('inputName').value;
     if (name.trim() == "" || name == null) {
-        alert("VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN !");
+        alert("VUI LÒNG NHẬP TÊN VÀO !");
         return;
     }
     let photo = document.getElementById('inputPhoto').value;
     if (photo.trim() == "" || photo == null) {
-        alert("VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN !");
+        alert("VUI LÒNG NHẬP ẢNH VÀO !");
         return;
     }
-    let birthday = document.getElementById('inputBirthday').value;
-    if (birthday.trim() == "" || birthday == null) {
-        alert("VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN !");
+    let number = document.getElementById('inputNumber').value;
+    if (number.trim() == "" || number == null) {
+        alert("VUI LÒNG NHẬP GIÁ MUỐN BÁN VÀO !");
         return;
     }
-    let nation = document.getElementById('inputNation').value;
-    if (nation.trim() == "" || nation == null) {
-        alert("VUI LÒNG NHẬP ĐẦY ĐỦ THÔNG TIN !");
+    let status = document.getElementById('inputStatus').value;
+    if (status.trim() == "" || status == null) {
+        alert("VUI LÒNG NHẬP TÌNH TRẠNG MÁY VAO !");
         return;
     }
-    players[position] = new Player(id, name, photo, birthday, nation);
+    players[position] = new Player(id, name, photo, number, status);
     setdata(keydata, players);
     renderlistplayer();
     cancel();
